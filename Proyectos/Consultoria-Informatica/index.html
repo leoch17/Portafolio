@@ -1,0 +1,1545 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap -->
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link  href="css/toastr.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styleMultilevel.css">
+
+    <style>
+        body{
+            background-color: rgba(71, 182, 214, 0.52);
+        }
+    </style>
+
+    <title>Consultoria CRAL</title>
+</head>
+<body>
+
+<!-- MENU NAVEGACION -->
+
+<div class="container-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://github.com/CristianGarciaO/Consultoria-Informatica">
+                    <img class="img-responsive"  src="images/github.png" alt="Proyecto GitHub"
+                         style="max-width:100px; margin-top: -7px;">
+                    </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><img src="images/logo.gif" class="img-responsive" alt="logo" style="max-width: 213px; margin-top: -6px;"></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a id="eventInicio" href="#">Inicio</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trabajadores<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administradores</a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="eventNuevoAdmin" href="#">Nuevo Administrador</a></li>
+                                    <li><a id="eventModificarAdmin" href="#">Modificar Administrador</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#" id="eventListarAdministrador">Listar Administrador</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Analistas</a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="eventNuevoAnalista" href="#">Nuevo Analista</a></li>
+                                    <li><a id="eventModificaAnalista" href="#">Modificar Analista</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#" id="eventListarAnalistas">Listar Analista</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programadores</a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="eventNuevoProgramador" href="#">Nuevo Programador</a></li>
+                                    <li><a id="eventModificaProgramador" href="#">Modificar Programador</a></li>
+                                    <li class="divider"></li>
+                                    <li><a id="eventListarProgramadores" href="#">Listar Programador</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cliente <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a id="eventNuevoCliente" href="#">Nuevo Cliente</a></li>
+                            <li><a id="eventModificaCliente" href="#">Modificar Cliente</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" id="eventListarClientes">Listar Cliente</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contratos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a id="eventNuevoContrato" href="#">Nuevo Contrato</a></li>
+                            <li><a id="eventModificarContrato" href="#">Modificar Contrato</a></li>
+                            <li class="divider"></li>
+                            <li><a id="eventlistarContrato" href="#">Listar Contrato</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicidad</a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="eventNuevaPublicidad" href="#">Asignar Nueva Publicidad</a></li>
+                                    <li><a id="eventEliminarPublicidad" href="#">Eliminar Publicidad</a></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a id="eventListarPublicidad" href="#">Listar Publicidad</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Incidencias <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a id="eventNuevaIncidencia" href="#">Abrir Incidencia</a></li>
+                        <li><a id="eventModificaIncidencia" href="#">Cerrar Incidencia</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Listar Incidencias <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="eventListarIncidenciasSinCerrar">Sin Cerrar</a></li>
+                                <li><a  href="#" id="eventListarIncidencias">Todas</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proyectos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a id="eventNuevoProyecto" href="#">Nuevo Proyecto</a></li>
+                            <li><a id="eventModificaProyecto" href="#">Modificar Proyecto</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" id="eventListarProyecto">Listar Proyectos</a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tareas <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a id="eventNuevaTarea" href="#">Nueva Tarea</a></li>
+                            <li><a id="eventModificaTarea" href="#">Modificar Tarea</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" id="eventListarTareas">Listar Tareas</a>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix" id="clearfix"></div>
+<div id="tablas"></div>
+
+<div class="container text-center" id="pantallaInicial">
+    <br>
+    <div class="clearfix"></div>
+    <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="images/software_empresarial.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <p>Software Empresarial</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ventajas-de-la-tecnologia.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <p>Ventajas De la Tecnología</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/ConsultoríaInformática.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <p>Consultoria Informática</p>
+        </div>
+    </div>
+</div>
+<!-- CONTENEDOR PRINCIPAL -->
+
+<div class="container">
+
+    <!-- ********** NUEVO CLIENTE ********** -->
+
+    <div class="container" id="divFormNuevoCliente">
+
+        <form class="form-horizontal" id="formuNuevoCliente">
+            <legend class="text-center">Nuevo Cliente</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreCliente_NueCli">Nombre:</label>
+                <div class="col-md-5">
+                    <input id="nombreCliente_NueCli" name="nombreCliente" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apellidoCliente_NueCli">Apellido:</label>
+                <div class="col-md-5">
+                    <input id="apellidoCliente_NueCli" name="apellidoCliente" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="dniCliente_NueCli">DNI:</label>
+                <div class="col-md-5">
+                    <input id="dniCliente_NueCli" name="dniCliente" type="text" placeholder="8 digitos mas letra" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefonoCliente_NueCli">Teléfono:</label>
+                <div class="col-md-5">
+                    <input id="telefonoCliente_NueCli" name="telefonoCliente" type="text" placeholder="9 digitos" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="direccionCliente_NueCli">Dirección:</label>
+                <div class="col-md-5">
+                    <input id="direccionCliente_NueCli" name="direccionCliente" type="text" placeholder="40 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_NueCli"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_NueCli" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_NueCli" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+    <!-- ********** MODIFICA CLIENTE ********** -->
+
+    <div class="container" id="divFormModificaCliente">
+
+        <form class="form-horizontal" id="formuModificaCliente">
+
+            <legend class="text-center">Modificar Cliente</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectCliente_ModCli">Selecciona Cliente:</label>
+                <div class="col-md-5">
+                    <select id="selectCliente_ModCli" name="selectCliente" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreCliente_ModCli">Nombre:</label>
+                <div class="col-md-5">
+                    <input id="nombreCliente_ModCli" name="nombreCliente" type="text" placeholder="max 30 caracteres" class="form-control input-md" required="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apellidoCliente_ModCli">Apellido:</label>
+                <div class="col-md-5">
+                    <input id="apellidoCliente_ModCli" name="apellidoCliente" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="dniCliente_ModCli">DNI:</label>
+                <div class="col-md-5">
+                    <input id="dniCliente_ModCli" name="dniCliente" type="text" placeholder="8 digitos mas letra" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefonoCliente_ModCli">Teléfono:</label>
+                <div class="col-md-5">
+                    <input id="telefonoCliente_ModCli" name="telefonoCliente" type="text" placeholder="9 digitos" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="direccionCliente_ModCli">Dirección:</label>
+                <div class="col-md-5">
+                    <input id="direccionCliente_ModCli" name="direccionCliente" type="text" placeholder="40 caracteres" class="form-control input-md">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_ModCli"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_ModCli" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_ModCli" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+    <!-- ********** NUEVA INCIDENCIA ********** -->
+
+    <div class="container" id="divFormNuevaIncidencia">
+
+        <form id="formuNuevaIncidencia" class="form-horizontal">
+
+            <legend class="text-center">Nueva Incidencia</legend>
+
+
+            <div class="form-group">
+                <label class="control-label col-md-4" for="asun_NueInc">Asunto</label>
+                <div class="controls col-md-5">
+                    <input id="asun_NueInc" name="asunto" type="text" placeholder="Máximo 60 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-md-4" for="descripcion_NueInc">Descripción</label>
+                <div class="controls col-md-5">
+                    <textarea class="form-control textarea-md" id="descripcion_NueInc" name="desc_inc" placeholder="Describa minuciosamente el motivo de la incidencia"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Prioridad: </label>
+                <div class="controls col-md-5">
+                    <label class="radio inline" for="prioridad-0">
+                        <input type="radio" name="prioridad" id="prioridad-0" value="Grave" checked="checked">
+                            Grave
+                    </label>
+                    <label class="radio inline" for="prioridad-1">
+                        <input type="radio" name="prioridad" id="prioridad-1" value="Media">
+                            Media
+                    </label>
+                    <label class="radio inline" for="prioridad-3">
+                        <input type="radio" name="prioridad" id="prioridad-3" value="Leve">
+                        Leve
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-md-4" for="administradores_NueInc">Selecciona Administrador</label>
+                <div class="controls col-md-5">
+                    <select id="administradores_NueInc" name="administradores" class=" form-control input-large">
+                        <!--Aqui se crean los options dinamicamente-->
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_NueInc"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_NueInc" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_NueInc" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <!-- ********** CERRAR INCIDENCIA ********** -->
+
+    <div class="container" id="divFormModificaIncidencia">
+
+        <form id="formuModificaIncidencia" class="form-horizontal">
+
+            <legend class="text-center">Cerrar Incidencia</legend>
+
+
+            <div  class="form-group botones">
+                <label class="col-md-4 control-label" for="incidencia_ModInc">Selecciona Incidencia:</label>
+                <div class="col-md-5">
+                    <select id="incidencia_ModInc" name="incidencia" class="form-control">
+                        <!--Aqui las distintas incidencias existentes por cargarComboIncidencias()-->
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-group oculto">
+                <label class="col-md-4 control-label" for="asun_ModInc">Asunto</label>
+                <div class="col-md-5 controls">
+                    <input id="asun_ModInc" name="prioridad" type="text" class="form-control input-md" readonly="readonly">
+
+                </div>
+            </div>
+
+            <div class="form-group oculto">
+                <label class="col-md-4 control-label" for="descripcion_ModInc">Descripción</label>
+                <div class="col-md-5 controls">
+                    <textarea id="descripcion_ModInc" class="form-control textarea-md" name="desc_inc" readonly="readonly"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-group oculto">
+                <label class="col-md-4 control-label">Prioridad: </label>
+                <div class="col-md-5 controls">
+                    <input id="prioridad_ModInc" name="prioridad" type="text" class="form-control input-md" readonly="readonly">
+                </div>
+            </div>
+
+
+            <div class="form-group oculto" >
+                <label class="col-md-4 control-label" for="administradores_ModInc">Administrador</label>
+                <div class="col-md-5 controls">
+                    <input id="administradores_ModInc" name="administradores" class="form-control input-large" readonly="readonly">
+                      <!--Aqui el admin que abrio la incidencia-->
+                    </input>
+                </div>
+            </div>
+
+
+            <div class="form-group botones">
+                <label class="col-md-4 control-label" for="guardar_ModInc"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_ModInc" name="cerrar" class="btn btn-success">Cerrar</button>
+                    <button type="button" id="limpiar_ModInc" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- ********** NUEVA PUBLICIDAD ********** -->
+
+    <div class="container" id="divFormNuevaPublioidad">
+
+        <form id="formuNuevaPublicidad" class="form-horizontal">
+
+            <legend class="text-center">Asigna Publicidad</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectAdmin_NuePub">Selecciona Administrador</label>
+                <div class="col-md-5">
+                    <select id="selectAdmin_NuePub" name="selectAdmin" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cliente_NuePub">Selecciona Cliente:</label>
+                <div class="col-md-5">
+                    <select id="cliente_NuePub" name="cliente" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Tipo:</label>
+                <div class="col-md-5">
+                    <label class="radio-inline">
+                        <input type="radio" name="tipo"  value="Twitter" checked="checked">
+                        Twitter
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="tipo" value="Facebook">
+                        Facebook
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="tipo" value="Email">
+                        Email
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="descripcion_NuePub">Descripción</label>
+                <div class="col-md-5">
+                    <textarea class="form-control" id="descripcion_NuePub" name="descripcionPublicidad"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_NuePub"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_NuePub" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_NuePub" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- ********** ELIMINAR PUBLICIDAD ********** -->
+
+    <div class="container" id="divFormEliminaPublicidad">
+
+        <form id="formuElimiarPublicidad" class="form-horizontal">
+
+            <legend class="text-center">Eliminar Publicidad</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectPublicidad_EliPub">Selecciona Publicidad:</label>
+                <div class="col-md-5">
+                    <select id="selectPublicidad_EliPub" name="selectPublicidad" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="eliminar_EliPub"></label>
+                <div class="col-md-8">
+                    <button type="button" id="eliminar_EliPub" name="guardar" class="btn btn-success">Eliminar</button>
+                    <button type="button" id="limpiar_EliPub" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- ********** LISTAR PUBLICIDAD ********** -->
+
+    <div class="container" id="divFormListarPublicidad">
+
+        <form id="formuListarPublicidad" class="form-horizontal">
+
+            <legend class="text-center"><h1>PUBLICIDADES</h1></legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectListaPub_Cli">Por Cliente:</label>
+                <div class="col-md-5">
+                    <select id="selectListaPub_Cli" name="selectListaPubCli" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectListaPub_Admin">Por Administrador:</label>
+                <div class="col-md-5">
+                    <select id="selectListaPub_Admin" name="selectListaPubAdmin" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="listaTodaPublicidad"></label>
+                <div class="col-md-8">
+                    <button type="button" id="listaTodaPublicidad" name="listaTodo" class="btn btn-success">Resumen General</button>
+                    <button type="button" id="limpiarTablasPubli" name="limpiarTabPub" class="btn btn-warning">Limpiar tablas General</button>
+                </div>
+            </div>
+
+            <div id="listasPublicidad">
+                <hr>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- ********** NUEVO CONTRATO ********** -->
+
+    <div class="container" id="divFormNuevoContrato">
+
+        <form id="formuNuevoContrato" class="form-horizontal">
+
+            <legend class="text-center">Nuevo Contrato</legend>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreProyecto_NueCon">Selecciona Proyecto:</label>
+                <div class="col-md-5">
+                    <select id="nombreProyecto_NueCon" name="nombreProyecto" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cliente_NueCon">Selecciona Cliente:</label>
+                <div class="col-md-5">
+                    <select id="cliente_NueCon" name="cliente" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="precio_NueCon">Precio del Proyecto: </label>
+                <div class="col-md-5">
+                    <input id="precio_NueCon" name="precio" type="text" placeholder="Máximo 10 digitos y entre 1 y 2 decimales" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaIni_NueCon">Fecha Inicio:</label>
+                <div class="col-md-5">
+                    <input id="fechaIni_NueCon" name="fechaIni" type="text" placeholder="aaaa-mm-dd" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaFin_NueCon">Fecha Fin:</label>
+                <div class="col-md-5">
+                    <input id="fechaFin_NueCon" name="fechaFin" type="text" placeholder="aaaa-mm-dd" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_NueCon"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_NueCon" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_NueCon" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <!-- ********** MODIFICAR CONTRATO ********** -->
+
+    <div class="container" id="divFormModificarContrato">
+
+        <form id="formuModificarContrato" class="form-horizontal">
+
+            <legend class="text-center">Modificar Contrato</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectContrato_ModCon">Selecciona Contrato</label>
+                <div class="col-md-5">
+                    <select id="selectContrato_ModCon" name="selectContrato" class="form-control">
+                       
+                    </select>
+                </div>
+            </div>
+
+
+			<div id="nomCon" class="form-group oculto">
+                <label class="col-md-4 control-label" for="nombreProyecto_ModCon">Proyecto: </label>
+                <div class="col-md-5">
+                    <input id="nombreProyecto_ModCon" name="nombreProyecto" type="text" placeholder="Máx 20 caracteres" class="form-control input-md">
+                </div>
+            </div>
+			
+			<div id="nomCli" class="form-group oculto">
+                <label class="col-md-4 control-label" for="cliente_ModCon">Cliente: </label>
+                <div class="col-md-5">
+                    <input id="cliente_ModCon" name="cliente" type="text" placeholder="Máx 30 caracteres" class="form-control input-md">
+                </div>
+            </div>
+			
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="precio_ModCon">Precio del Proyecto: </label>
+                <div class="col-md-5">
+                    <input id="precio_ModCon" name="precio" type="text" placeholder="Máximo 10 digitos y entre 1 y 2 decimales" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaIni_ModCon">Fecha Inicio:</label>
+                <div class="col-md-5">
+                    <input id="fechaIni_ModCon" name="fechaIni" type="text" placeholder="aaaa-mm-dd" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaFin_ModCon">Fecha Fin:</label>
+                <div class="col-md-5">
+                    <input id="fechaFin_ModCon" name="fechaFin" type="text" placeholder="aaaa-mm-dd" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_ModCon"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_ModCon" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_ModCon" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- ********** NUEVO ADMINISTRADOR ********** -->
+
+    <div class="container" id="divFormNuevoAdministrador">
+
+
+        <form id="formuNuevoAdmin" class="form-horizontal">
+
+            <legend class="text-center">Nuevo Administrador</legend>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreAdmin_NueAdm">Nombre:</label>
+                <div class="col-md-5">
+                    <input id="nombreAdmin_NueAdm" name="nombreAdmin" type="text" placeholder="max 30 caracteres" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apellidoAdmin_NueAdm">Apellido:</label>
+                <div class="col-md-5">
+                    <input id="apellidoAdmin_NueAdm" name="apellidoAdmin" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="dniAdmin_NueAdm">DNI:</label>
+                <div class="col-md-5">
+                    <input id="dniAdmin_NueAdm" name="dniAdmin" type="text" placeholder="8 digitos mas letra mayuscula" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefonoAdmin_NueAdm">Teléfono:</label>
+                <div class="col-md-5">
+                    <input id="telefonoAdmin_NueAdm" name="telefonoAdmin" type="text" placeholder="9 digitos" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="direccionAdmin_NueAdm">Dirección:</label>
+                <div class="col-md-5">
+                    <input id="direccionAdmin_NueAdm" name="direccionAdmin" type="text" placeholder="40 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_NueAdm"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_NueAdm" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_NueAdm" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- ********** MODIFICAR ADMINISTRADOR ********** -->
+
+    <div class="container" id="divFormModificarAdministrador">
+
+        <form id="formuModificarAdmin" class="form-horizontal">
+
+            <legend class="text-center">Modificar Administrador</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectAdmin_ModAdm">Selecciona Administrador:</label>
+                <div class="col-md-5">
+                    <select id="selectAdmin_ModAdm" name="selectAdmin" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreAdmin_ModAdm">Nombre:</label>
+                <div class="col-md-5">
+                    <input id="nombreAdmin_ModAdm" name="nombreAdmin" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apellidoAdmin_ModAdm">Apellido:</label>
+                <div class="col-md-5">
+                    <input id="apellidoAdmin_ModAdm" name="apellidoAdmin" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="dniAdmin_ModAdm">DNI:</label>
+                <div class="col-md-5">
+                    <input id="dniAdmin_ModAdm" name="dniAdmin" type="text" placeholder="8 digitos mas letra" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefonoAdmin_ModAdm">Teléfono:</label>
+                <div class="col-md-5">
+                    <input id="telefonoAdmin_ModAdm" name="telefonoAdmin" type="text" placeholder="9 digitos" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="direccionAdmin_ModAdm">Dirección:</label>
+                <div class="col-md-5">
+                    <input id="direccionAdmin_ModAdm" name="direccionAdmin" type="text" placeholder="40 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="guardar_ModAdm"></label>
+                <div class="col-md-8">
+                    <button type="button" id="guardar_ModAdm" name="guardar" class="btn btn-success">Guardar</button>
+                    <button type="button" id="limpiar_ModAdm" name="limpiar" class="btn btn-warning">Limpiar Campos</button>
+                </div>
+            </div>
+
+        </form>
+
+
+</div>
+
+
+    <!-- ********** NUEVO PROYECTO ********** -->
+
+    <div class="container" id="divFormNuevoProyecto">
+
+    <form class="form-horizontal" id="formuNuevoProyecto">
+        <fieldset>
+
+
+            <legend class="text-center">Nuevo Proyecto</legend>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreProyecto">Nombre</label>
+                <div class="col-md-4">
+                    <input id="nombreProyecto" name="nombreProyecto" type="text" placeholder="Máximo 20 carateres" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tareasProyecto">Tareas</label>
+                <div class="col-md-4">
+                    <select id="tareasProyecto" name="tareasProyecto" class="form-control"  multiple="multiple">
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="analistasProyecto">Analistas</label>
+                <div class="col-md-4">
+                    <select id="analistasProyecto" name="analistasProyecto" class="form-control"  multiple="multiple">
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="proyecto"></label>
+                <div class="col-md-4">
+                    <button type="button" id="proyecto" name="proyecto" class="btn btn-primary">Crear Proyecto</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+
+
+
+</div>
+
+
+    <!-- ********** MODIFICAR PROYECTO ********** -->
+    <div class="container" id="divFormModificaProyecto">
+
+        <form class="form-horizontal" id="formuModificaProyecto">
+            <fieldset>
+
+
+                <legend class="text-center">Modificar Proyecto</legend>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectProy_ModProy">Selecciona Proyecto</label>
+                    <div class="col-md-4">
+                        <select id="selectProy_ModProy" name="selectProy_ModProy" class="form-control">
+
+                        </select>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreProyecto_modPr">Nombre</label>
+                    <div class="col-md-4">
+                        <input id="nombreProyecto_modPr" name="nombreProyectoMod" type="text" placeholder="Máximo 20 carateres" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="tareasProyMod">Tareas</label>
+                    <div class="col-md-4">
+                        <select id="tareasProyMod" name="tareasProyMod" class="form-control"  multiple="multiple">
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="analistasProyMod">Analistas</label>
+                    <div class="col-md-4">
+                        <select id="analistasProyMod" name="analistasProyMod" class="form-control"  multiple="multiple">
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="proyecto"></label>
+                    <div class="col-md-4">
+                        <button type="button" id="proyectoModificar" name="proyecto" class="btn btn-primary">Modificar Proyecto</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+
+
+
+    </div>
+
+
+    <!-- ********** NUEVA TAREA ********** -->
+
+    <div class="container" id="divFormNuevaTarea">
+
+        <form class="form-horizontal" id="formuNuevaTarea">
+            <fieldset>
+
+
+                <legend class="text-center">Nueva Tarea</legend>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nTareaCodigo">Código</label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input id="nTareaCodigo" name="nTareaCodigo" class="form-control" placeholder="Código" type="text" required="" disabled="disabled" >
+                            <span class="input-group-addon" href="#" id="eventGenerarCodigoTarea"><a href="#">Código</a></span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreTarea">Nombre</label>
+                    <div class="col-md-4">
+                        <input id="nombreTarea" name="nombreTarea" type="text" placeholder="Nombre Tarea" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="fechaini">Fecha Inicial</label>
+                    <div class="col-md-4">
+                        <input id="fechaIni" name="fechaIni" type="text" placeholder="Fecha inicial" class="form-control input-md" >
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreProyectoSelect">Nombre Proyecto</label>
+                    <div class="col-md-4">
+                        <select id="nombreProyectoSelect" name="nombreProyectoSelect" class="form-control">
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="fechafin">Fecha Fin</label>
+                    <div class="col-md-4">
+                        <input id="fechaFin" name="fechaFin" type="text" placeholder="Fecha final" class="form-control input-md" required=""  >
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Estado</label>
+                    <div class="col-md-5">
+                        <label class="radio-inline" for="radioEstado-0">
+                           <input type="radio" name="radioEstado" id="radioEstado-0" value="Sin Hacer" checked="checked">
+                            Sin Hacer
+                        </label>
+                        <label class="radio-inline" for="radioEstado-1">
+                            <input type="radio" name="radioEstado" id="radioEstado-1" value="Empezado">
+                            Empezado
+                        </label>
+                        <label class="radio-inline" for="radioEstado-2">
+                            <input type="radio" name="radioEstado" id="radioEstado-2" value="Avanzado">
+                            Avanzado
+                        </label>
+                        <label class="radio-inline" for="radioEstado-3">
+                            <input type="radio" name="radioEstado" id="radioEstado-3" value="Casi Terminado">
+                            Casi Terminado
+                        </label>
+                        <label class="radio-inline" for="radioEstado-4">
+                            <input type="radio" name="radioEstado" id="radioEstado-4" value="Finalizado">
+                            Finalizado
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="CrearTarea"></label>
+                    <div class="col-md-4">
+                        <button type="button" id="crearTarea" name="crearTarea" class="btn btn-primary">Crear Tarea</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+
+
+
+
+
+    </div>
+
+    <!-- ********** MODIFICAR TAREA ********** -->
+
+	
+    <div class="container" id="divFormModificaTarea">
+
+        <form class="form-horizontal" id="formuModificaTarea">
+            <fieldset>
+
+
+                <legend class="text-center">Modificar Tarea</legend>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectTarea_ModTarea">Selecciona Tarea:</label>
+                    <div class="col-md-5">
+                        <select id="selectTarea_ModTarea" name="selectTarea" class="form-control">
+
+                        </select>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nTareaCodigoMod">Código</label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input id="nTareaCodigoMod" name="nTareaCodigoMod" class="form-control" placeholder="Código" type="text" required="" disabled="disabled" >
+                            <span class="input-group-addon" href="#" id="eventGenerarCodigoTareaMod">Código</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreTareaMod">Nombre</label>
+                    <div class="col-md-4">
+                        <input id="nombreTareaMod" name="nombreTareaMod" type="text" placeholder="Nombre Tarea" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="fechaini">Fecha Inicial</label>
+                    <div class="col-md-4">
+                        <input id="fechainiMod" name="fechainiMod" type="text" placeholder="Fecha inicial" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreProyectoSelectMod">Nombre Proyecto</label>
+                    <div class="col-md-4">
+                        <select id="nombreProyectoSelectMod" name="nombreProyectoSelectMod" class="form-control">
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="fechafinMod">Fecha Fin</label>
+                    <div class="col-md-4">
+                        <input id="fechafinMod" name="fechafinMod" type="text" placeholder="Fecha final" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Estado</label>
+                    <div class="col-md-5">
+                        <label class="radio-inline" for="radioEstadoMod-0">
+                            <input type="radio" name="radioEstadoMod" id="radioEstadoMod-0" value="Sin Hacer" checked="checked" readonly>
+                            Sin Hacer
+                        </label>
+                        <label class="radio-inline" for="radioEstadoMod-1">
+                            <input type="radio" name="radioEstadoMod" id="radioEstadoMod-1" value="Empezado" readonly>
+                            Empezado
+                        </label>
+                        <label class="radio-inline" for="radioEstadoMod-2">
+                            <input type="radio" name="radioEstadoMod" id="radioEstadoMod-2" value="Avanzado" readonly>
+                            Avanzado
+                        </label>
+                        <label class="radio-inline" for="radioEstadoMod-3">
+                            <input type="radio" name="radioEstadoMod" id="radioEstadoMod-3" value="Casi Terminado" readonly>
+                            Casi Terminado
+                        </label>
+                        <label class="radio-inline" for="radioEstadoMod-4">
+                            <input type="radio" name="radioEstadoMod" id="radioEstadoMod-4" value="Finalizado" readonly>
+                            Finalizado
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="CrearTarea"></label>
+                    <div class="col-md-4">
+                        <button type="button" id="modificarTarea" name="ModificaTarea" class="btn btn-primary">Modifica Tarea</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+
+
+
+
+
+    </div>
+
+
+    <!-- ********** NUEVO ANALISTA ********** -->
+
+    <div class="container" id="divFormNuevoAnalista">
+    <form class="form-horizontal" id="formuNuevoAnalista">
+        <fieldset>
+
+
+            <legend class="text-center">Analista</legend>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreAnalis_NueAnalist">Nombre:</label>
+                <div class="col-md-5">
+                    <input id="nombreAnalis_NueAnalist" name="nombreAnalista" type="text" placeholder="max 30 caracteres" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apellidosAnalis_NueAnalist">Apellidos:</label>
+                <div class="col-md-5">
+                    <input id="apellidosAnalis_NueAnalist" name="apellidosAnalsta" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="dniAnalis_NueAnalist">DNI:</label>
+                <div class="col-md-5">
+                    <input id="dniAnalis_NueAnalist" name="dniAnalist" type="text" placeholder="8 digitos más letra mayuscula" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefonoAnalis_NueAnalist">Teléfono:</label>
+                <div class="col-md-5">
+                    <input id="telefonoAnalis_NueAnalist" name="telefonoAnalista" type="text" placeholder="9 digitos" class="form-control input-md">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="direccionAnalis_NueAnalist">Dirección:</label>
+                <div class="col-md-5">
+                    <input id="direccionAnalis_NueAnalist" name="direccionAnalista" type="text" placeholder="40 caracteres" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectPrograAnalista">Selecciona Programador(es)</label>
+                <div class="col-md-4">
+                    <select id="selectPrograAnalista" name="selectPrograAnalista" class="form-control" multiple="multiple">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="CrearTarea"></label>
+                <div class="col-md-4">
+                    <button type="button" id="añadirAnalista" name="añadirAnalista" class="btn btn-primary">Añadir Analista</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+
+    <!-- ********** MODIFICAR ANALISTA ********** -->
+
+    <div class="container" id="divFormModificaAnalista">
+        <form class="form-horizontal" id="formuModificaAnalista">
+            <fieldset>
+
+
+                <legend class="text-center">Analista</legend>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectAnalis_Mod">Analista</label>
+                    <div class="col-md-4">
+                        <select id="selectAnalis_Mod" name="selectAnalis_Mod" class="form-control">
+                           <!--se cargan las options-->
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreAnalis_Mod">Nombre:</label>
+                    <div class="col-md-5">
+                        <input id="nombreAnalis_Mod" name="nombreAnalistaMod" type="text" placeholder="max 30 caracteres" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="apellidosAnalis_Mod">Apellidos:</label>
+                    <div class="col-md-5">
+                        <input id="apellidosAnalis_Mod" name="apellidosAnalstaMod" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="dniAnalis_Mod">DNI:</label>
+                    <div class="col-md-5">
+                        <input id="dniAnalis_Mod" name="dniAnalistMod" type="text" placeholder="8 digitos más letra mayuscula" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="telefonoAnalis_Mod">Teléfono:</label>
+                    <div class="col-md-5">
+                        <input id="telefonoAnalis_Mod" name="telefonoAnalistaMod" type="text" placeholder="9 digitos" class="form-control input-md">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="direccionAnalis_Mod">Dirección:</label>
+                    <div class="col-md-5">
+                        <input id="direccionAnalis_Mod" name="direccionAnalistaMod" type="text" placeholder="40 caracteres" class="form-control input-md">
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectPrograAnalistaModifica">Selecciona Programador(es)</label>
+                    <div class="col-md-4">
+                        <select id="selectPrograAnalistaModifica" name="selectPrograAnalistaModifica" class="form-control" multiple="multiple">
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="modificarAnalista"></label>
+                    <div class="col-md-4">
+                        <button type="button" id="modificarAnalista" name="modificarAnalista" class="btn btn-primary">Modificar Analista</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- ********** AÑADIR PROGRAMADOR ********** -->
+
+    <div class="container" id="divFormNuevoProgramador">
+        <form class="form-horizontal" id="formuNuevoProgramador">
+            <fieldset>
+
+
+                <legend class="text-center">Programador</legend>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreProgr_NueProgr">Nombre:</label>
+                    <div class="col-md-5">
+                        <input id="nombreProgr_NueProgr" name="nombreProgramador" type="text" placeholder="max 30 caracteres" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="apellidoAdmin_NueAdm">Apellidos:</label>
+                    <div class="col-md-5">
+                        <input id="apellidosProgr_NueProgr" name="apellidosProgramador" type="text" placeholder="max 30 caracteres" class="form-control input-md">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="dniAdmin_NueAdm">DNI:</label>
+                    <div class="col-md-5">
+                        <input id="dniProgr_NueProgr" name="dniProgramador" type="text" placeholder="8 digitos más letra mayuscula" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="telefonoAdmin_NueAdm">Teléfono:</label>
+                    <div class="col-md-5">
+                        <input id="telefonoProgr_NueProgr" name="telefonoProgramador" type="text" placeholder="9 digitos" class="form-control input-md">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="direccionAdmin_NueAdm">Dirección:</label>
+                    <div class="col-md-5">
+                        <input id="direccioProgr_NueProgr" name="direccionProgramador" type="text" placeholder="40 caracteres" class="form-control input-md">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectPrograAnalista">Selecciona Analista</label>
+                    <div class="col-md-4">
+                        <select id="selectAnalistaProgr" name="selectAnalistaProgr" class="form-control">
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="CrearTarea"></label>
+                    <div class="col-md-4">
+                        <button type="button" id="añadirProgramador" name="añadirProgramador" class="btn btn-primary">Añadir Programador</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- ********** MODIFICAR PROGRAMADOR ********** -->
+
+
+    <div class="container" id="divFormModificaProgramador">
+        <form class="form-horizontal" id="formuModificaProgramador">
+            <fieldset>
+
+
+                <legend class="text-center">Programador</legend>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectProgram_Mod">Programador:</label>
+                    <div class="col-md-4">
+                        <select id="selectProgram_Mod" name="selectProgram_Mod" class="form-control">
+                            <!--se cargan las options-->
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nombreProgr_ModProgr">Nombre:</label>
+                    <div class="col-md-5">
+                        <input id="nombreProgr_ModProgr" name="nombreProgramadorMod" type="text" placeholder="max 30 caracteres" class="form-control input-md" required="" readonly="readonly">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="apellidosProgr_ModProgr">Apellidos:</label>
+                    <div class="col-md-5">
+                        <input id="apellidosProgr_ModProgr" name="apellidosProgramadorMod" type="text" placeholder="max 30 caracteres" class="form-control input-md" readonly="readonly">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="dniProgr_ModProgr">DNI:</label>
+                    <div class="col-md-5">
+                        <input id="dniProgr_ModProgr" name="dniProgramadorMod" type="text" placeholder="8 digitos más letra mayuscula" class="form-control input-md" required="" readonly="readonly">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="telefonoProgr_ModProgr">Teléfono:</label>
+                    <div class="col-md-5">
+                        <input id="telefonoProgr_ModProgr" name="telefonoProgramadorMod" type="text" placeholder="9 digitos" class="form-control input-md" readonly="readonly">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="direccioProgr_ModProgr">Dirección:</label>
+                    <div class="col-md-5">
+                        <input id="direccioProgr_ModProgr" name="direccionProgramadorMod" type="text" placeholder="40 caracteres" class="form-control input-md" readonly="readonly">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectAnalistaProgrMod">Selecciona Analista(s)</label>
+                    <div class="col-md-4">
+                        <select id="selectAnalistaProgrMod" name="selectAnalistaProgrMod" class="form-control">
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="modificarProgramador"></label>
+                    <div class="col-md-4">
+                        <button type="button" id="modificarProgramador" name="modificarProgramador" class="btn btn-primary">Modificar Programador</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+
+
+<!--SCRIPTS-->
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script src="js/toastr.js"></script>
+
+<script type="text/javascript" src="js/objetos.js"></script>
+<script type="text/javascript" src="js/principal.js"></script>
+</body>
+</html>
